@@ -1,0 +1,316 @@
+Changelog
+
+Version 1.5
+-----------
+
+Bug fixes:
+- crash when exceeding undo limit
+- error in Unicode to ZSCII encoding algorithm
+
+Features/changes:
+- standard directory lookup
+- core execution is now a pause-resume
+- timed input is now controlled by user interface
+- New screen model based on standard Swing components
+- Spanish user interface translation by Pichuneke
+- Swedish user interface translation by Fredrik Ramsberg
+- All tests are using JUnit 4 and JMock 2.5
+- Memory, stack and variables are now all unsigned 16 or 8 bit values
+- Maven 2 based builds
+- String encoding works internally with ZSCII in the core
+- replaced ZsciiString and ZsciiStringBuilder and ZsciiStringTokenizer with
+  the J2SE versions based on String class
+- changed decoding scheme to resemble the one from the Erlang implementation
+- Open function added
+- remembers last current directory
+- Standard and fixed fonts can be specified
+
+known issues:
+
+- broken V6 support for this version, please use 1.0x if you want limited
+  V6 support. Later versions will provide improved V6 support, but I can not
+  say when that will happen
+
+
+Version 1.01
+------------
+- French translation of UI (by Eric Forgeot)
+- application version can read from URL as well
+- DEBUG flag can now only be used in application version
+
+Version 1.0
+-----------
+
+- revamped object system
+- revamped dictionary and encoding
+- fixed unicode representation
+- updated to GPL V3
+- internationalized user interface for English and German
+- improved Mac OS X integration
+- debug option
+
+Version 0.92_02
+---------------
+- fixed a display issue that arises when input is expected, but no prompt
+  string is printed by the game
+- small refactorings in the screen model
+- renewed the certificate which was expired
+
+Version 0.92
+------------
+- picture scaling added
+- V6 cursor handling fixed (was character based, changed to pixel based)
+- fixed get_wind_prop 11 (returned wrong color values)
+- fixed @set_window in V6
+- fixed retrieval of cursor coordinates
+- optimization: cpu stack is now an array of primitives
+- can run Journey for some time
+- placeholder picture support added (needed for Shogun)
+- @picture_table, @erase_picture, @pull (V6), @pop_stack, @push_stack,
+  @scroll_window, @read_mouse
+- swing antialiasing enabled, text antialias as an option
+- user stacks added
+- small fix: now displays the time status correctly
+- "color under cursor" implemented
+- fine-grained control over flushing, prevents lost characters on 
+  multiprocessor machines when typing fast
+- newline interrupts
+- stream buffering moved into sub window classes
+- outputstream 3 reports text width in V6
+
+Version 0.90
+------------
+- customizable fonts sizes/default colors
+- preferences dialog added
+- joined info panel and cover art panel
+- fixed smaller bugs related to metadata and cover art
+- stack underflow check for routines added
+- modified according to Treaty of Babel
+- restructured so ZMPP could be invoked in another Java application
+- set the swing.aatext property by default
+- cosmetic changes
+- focus problem in Mozilla/Opera Linux solved
+
+Version 0.89
+------------
+- performance tuning (object access, instruction processing)
+- processes and views meta information
+- no maven builds anymore
+- command history added
+- added multiple undo
+- added save to file in applet mode
+- started signing the jar file
+
+Version 0.87
+------------
+
+- sub window graphics operations clip to window bounds
+- standalone application accepts the story file as a parameter
+- enable V6 story file reading
+- resetting sub components on restart
+- fixed memory stream bug
+- opcodes: @mouse_window, @picture_data, @draw_picture, @move_window,
+  @window_style, @window_size, @set_margins, @get_wind_prop
+- changed @set_colour, @erase_line for model 6
+- picture management
+- can use embedded ZCOD chunks in Blorb files
+
+Version 0.86
+------------
+- imitate text coloring in console Frotz, making "Varicella" and "Photopia" more enjoyable
+- Blorb support
+- sound support
+- major refactorings
+- fixed some display bugs
+- fixed file verification
+- paging now pixel based
+
+Version 0.83
+------------
+
+- core is now based on ZSCII instead of Unicode
+- fixed and tested to be compliant with Swedish.h
+- "Freefall" bug fixed by changing the behaviour of timed input
+
+Version 0.82
+------------
+
+- Standard revision number 1.0 is now set to the header
+- fixed the "missing newline" bug (was a misunderstanding of print_ret)
+- added check in attribute instructions, so the "Sherlock bug" is handled implicitly
+- added font width and height to header
+- user dictionary with linear search added
+- restructuring of string encoding related classes
+- encoder implemented
+- structure improvements, "machine services"
+- terminator characters support
+- @print_table, @encode_text, @catch and @throw implemented
+- non-V6 opcodes completed (@sound_effect not really implemented)
+- extension table support
+- mouse support
+- custom accent tables
+- custom alphabet tables
+- dictionary truncation fixed
+- alphabet tables for V1 and V2 and shift lock decoding, equals support for V1 and V2 !!!!
+- fixed the "Zokoban" bug (Zokoban itself does not split the screen, leaving the screen
+   model confused)
+ - refactored sub window classes for better testing and maintenance
+ - fixed input of ' character, overlap with the CURSOR_RIGHT key.
+ - fixed the @set_colour bug
+ - fixed the @copy_table bug
+
+Version 0.78
+-----------
+
+- reorganized the package structure
+- refactoring input and lexical analysis is in an own class now
+- added more tests for input
+- added timed input
+- there is only one character reading function now, management of the the input buffer is
+   now subject to the interpreter
+- check_unicode and print_unicode added
+- fixed a bug in the tokenise function
+- fixed an issue with the input line, after printing a single empty line, the newline was not
+   performed
+- displayCursor() is now under control of the virtual machine core, making it easier to
+   display the correct cursor state within timed input
+- TextViewport has no edit mode anymore, reducing the UI complexity
+- replaced paging scheme, the old one had problems when text was printed as separate lines 
+- set default colors to header
+- prints several unicode characters
+- handles escape key
+- ran etude.z5 for the first time, runs successfully
+   -> fixed one problem with accents
+   -> fixed one problem with fonts
+   -> fixed one problem with colors
+   -> output is flushed before quit
+   -> leftover input is editable
+   -> fixed font style combination issue
+- ran strictz.z5 for the first time, successfully
+   -> fixed one issue in insert_object with object 0
+- ran gntests for the first time
+- ran unicode.z5 for the first time
+
+Version 0.75
+------------
+
+- added handling for removing objects without a parent
+- redesigned the decoding code for z encoded strings
+- added support for special charactes using the standard translation table, input and output
+- reduced number of repaints resulting in faster output
+- changed instruction design and moved instructions to org.zmpp.instructions package
+- moved i/o stuff from vm package to io package
+- copy_table implemented
+
+Version 0.74
+------------
+
+- test for translate_packed_address in version 5
+- save (0OP) and restore (0OP) made illegal for version 5
+- sread changed to aread functionality (storing a result)
+- "not" changed to call_1n
+- VAR version of "not" added
+- call_2n, call_vn, call_vn2 added
+- decoding extended instructions added
+- save_undo, restore_undo added
+- art_shift, log_shift added
+- regular save and restore are now available in ExtendedInstruction
+- fixed object attribute bug
+- cursor key support added
+- flexible attributes in story file header
+- design and test improvements
+- RoutineContext extended by DISCARD_RESULT
+- extended Quetzal handling by DISCARD_RESULT
+- applet saves games to memory
+- fixed a bug that ignored newlines in unbuffered mode
+- "Curses" runs
+- "Jigsaw" runs (but no character graphics supported)
+- check_arg_count, piracy and tokenise
+- V7 and V8 addressing added
+- object 0 access checks
+- made read and tokenise comply to >= V5 specification
+- set_font and set_colour added
+
+Version 0.72 final (2005-12-07)
+-------------------------------
+
+- played Seastalker, Trinity, Bureaucracy, Plundered Hearts, A Mind Forever Voyaging
+- fixed broken tests, added several more
+- verified screen model
+- paging is disabled if input is from file
+- fixed paging: <MORE> had to disappear after key press
+- fixed scrolling issue in Trinity
+- fixed Bureaucracy screen behaviour
+
+Version 0.72 Beta (2005-11-30)
+------------------------------
+
+- translate_packed_address is multiplied by factor 4 in version 4
+- dictionary updated for version 4
+- objects updated for version 4
+- dictionary is created and stored in MachineConfig
+- show_status made illegal for version 4
+- save and restore behaviour changed for version 4
+- text styles added to the screen model, reverse video also added
+- object model extended
+- toggable text buffering
+- instruction decoder extended to allow for up to 8 parameters (evaluate the
+  second optype byte)
+- call_2s, call_1s, call_vs2, set_text_style, buffer_mode, erase_window,
+  erase_line, set_cursor, get_cursor, read_char, scan_table implemented
+- screen splitting implemented using a sub window model
+- window erase implemented
+- line erase implemented
+- set cursor implemented
+- reading single character implemented
+- different interpretation of the story file header
+- memory stream 3 with nesting implemented
+- cleaned up stream and screen model related stuff a little
+- played a few thousand lines of "A Mind Forever Voyaging", validating with
+  Frotz
+- non-wordwrapping scheme added
+- paging added
+- non-scrolling added
+
+Version 0.7 Release (2005-11-16)
+--------------------------------
+
+- feature freeze for this release
+- finally understood the difference between Z characters and ZSCII and
+  added ZSCII encoding
+- reduced stream output functions to one that puts out one ZSCII character
+- reduced stream input functions to one that reads one ZSCII character
+- added per-character stream output
+- input and output now handled according to the standard
+- applet frontend created
+- successfully started "Hitchhiker's Guide"
+
+Version 0.7 Preview 3 (2005-11-09)
+-----------------------------------
+
+- completely played through Zork I
+- fixed an issue with removing objects from inconsistent trees, which caused
+  "Leather goddesses" to freeze at a certain point
+- improvements to the interface
+- handling for header flags 1 and 2
+- file input stream and transcript stream added
+- consistency check for save games
+- check for story file version
+- no "open file" item anymore, loads a game at application start
+
+Version 0.7 Preview 2 (2005-11-04)
+-----------------------------------
+
+- fixed an issue with keyboard event handling on Mac OS X
+- routine stack and evaluation stack are changed to be lists, the stack
+  pointers are implicit, so there is no fixed stack size anymore
+- call and return scheme simplified
+- restart, save and restore implemented (Quetzal 1.4)
+
+
+Version 0.7 Preview 1 (2005-11-02)
+----------------------------------
+
+This is the first public file release. It implements an almost
+complete implementation of the instruction set for the story
+file version 3.

@@ -1,0 +1,88 @@
+**************************************
+Installation
+*************************************
+
+Simply unpack the zip or tar.gz file
+
+Mac OS X:
+
+Drag the Zmpp-1.5-preview1 application to your Applications folder
+
+**************************************
+Running as an application
+*************************************
+
+Command line:
+
+java [-DDEBUG] -jar zmpp-1.5-preview1.jar [story-file]
+
+On most systems, double clicking on the application jar file should start
+the software as well.
+The debug option enables printing the executed instructions to the command line
+
+Select a game:
+
+The game can be specified on the command line, if there is no story file
+specified, the application comes up with a file dialog
+
+Reading Blorb files
+---------------------
+
+Blorb files must have the same filename as their story files, with a suffix of ".blb". The
+name is case-sensitive, so the name should be exactly the same way as the respective
+story file.
+Note: ZMPP can handle Blorb-wrapped story files which are recognized by
+having either a ".zblb" or ".zblorb" extension.
+
+**************************
+Running as an applet
+**************************
+
+applet parameters:
+
+1. story-file:
+--------------
+the URL of the story file, must be on the same server as the jar file
+
+2. blorb-file (optional):
+------------------------
+the URL of the blorb file, must be on the same server as the jar file
+
+3. save-to (optional):
+---------------------
+if set to "file", the applet will try to save a game state to the
+user's file system, the default value is "memory" which saves a game
+within the Java VM's memory
+
+4. fixed-font-name/std-font-name (optional):
+--------------------------------------------
+the name of the standard and fixed fonts, the fixed font should be
+a font with a fixed width like Courier or Monospaced
+
+5. fixed-font-size/std-font-size (optional):
+--------------------------------------------
+the point size of the fixed font and the standard font. Can be set to any
+integer number, however, it is recommended to set them to reasonable values
+(e.g. 10-20)
+
+6. default-background/default-foreground (optional):
+----------------------------------------------------
+specify default background and foreground colors for the applet.
+
+possible values are:
+
+- black
+- red
+- green
+- yellow
+- blue
+- magenta
+- cyan
+- white
+- gray
+
+6. antialias (optional):
+------------------------
+
+turns the antialias for text rendering on/off.
+possible values: "on", "off", "true", "false"

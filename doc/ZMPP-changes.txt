@@ -1,0 +1,57 @@
+Changes to the core that need to be done:
+
+- AbstractInstruction.toString() seems to have side effects (changes
+  variable state) change that
+
+- add tests for rewritten read functionality and instructions
+- modified input stream behavior
+- removed timed input (put it in later)
+----------------
+- compare required info of an Instruction
+Erlang:
+OperandCount (0OP, 1OP, 2OP, VAR, EXT), OpcodeNum, Operands, StoreVar,
+BranchInfo, Address, OpcodeLen
+
+Java:
+OperandCount, OpcodeNum, Operands, StoreVar, OpcodeLen
+
+add: instruction address
+refactor: move branch specific information to branch info
+remove: InstructionForm, we don't need it
+
+------------------------------------
+
+Specification for new IF window model:
+
+3 different types:
+
+- text grid
+- text window
+- graphics window
+
+All windows must support:
+-------------------------
+- adaptable sizing (relative sizes) -> JEditorPane
+- adjustable margins                -> JEditorPane
+
+All text windows must support:
+------------------------------
+- selection, cut, copy, paste       -> JEditorPane
+- adjustable spacing                -> ?
+- adjustable fonts                  -> JEditorPane
+- wrapping                          -> JEditorPane
+- colors                            -> JEditorPane
+- cursor management                
+- accessibility
+- internationlized text
+- cursor on/off
+
+A generic text window must support:
+-----------------------------------
+- cursor positioning within the same line
+- scrolling
+
+A text box window must support:
+-------------------------------
+- cursor positioning
+

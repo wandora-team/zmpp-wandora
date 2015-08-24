@@ -1,0 +1,192 @@
+Roadmap:
+
+Ideas not yet verified:
+
+- URL transcript stream (transcript could be transferred to an URL)
+
+TODO:
+
+- save and restore with regions
+- input line editing (new screen model)
+- text selection (new swing standard text component based screen model)
+- cut, copy, paste (new screen model)
+- scrollback (new screen model)
+- add character graphics font
+- window size should be an option in preferences or the window should be sizable
+
+V6:
+
+opcodes:
+
+- @make_menu, @print_form
+- @outputstream with table width (do something with the table width)
+- verify screen model details
+- implement @mouse_window with window restriction
+- @read_mouse should handle menus
+
+@make_menu: Journey
+@print_form: Arthur
+@output_stream 3 params: Arthur (width always 0)
+
+Version 1.5 ("Schmalzy Core")
+-----------------------------
+This is a major redesign. Changes include:
+
+- cut dependencies to AWT and Swing in the core -> done
+- change core to use resume/continue execution model like in Schmalz -> in progress
+- implement abstract I/O model that does heavy lifting for the user
+  interface (ZmppIO), with an additional Glk interface for Glulx
+- move timed input out of the core (-> ZmppIO)
+- move command history out of the core  (-> ZmppIO)
+- move sound rendering out of the core (-> ZmppIO)
+- use Swing standard components for display ("zmpp-swing2")
+- simplify public interface and VM setup (replace MachineFactory by initialization scheme) -> done
+- make instruction decoding like Schmalz
+- make Z-encoding like Schmalz
+- make tokenization like Schmalz (Binary search match)
+- make instruction caching optional
+- make caching of original game memory chunk optional
+- make core classes Serializable for easier web application support
+
+Version 1.0
+-----------
+- fix design flaws
+- internationalized UI
+- MacOS X integration
+
+Version 0.92
+------------
+- V6 support
+- antialiasing
+- change stack model
+- implement all commands
+- move stream buffering into the sub windows
+- find out why the layout calculation does not work in V6
+
+Version 0.90
+------------
+- customizable default colors and font sizes
+- make settings dialog for standalone version
+- fix the problem that leads to focus loss in Mozilla and Opera
+- do more benchmark testing and tuning
+
+Version 0.89
+------------
+- performance tuning (Inform 7 games seem to run significantly slower)
+- metadata and frontispiece support
+- command history
+- applet version: display front picture and load progress bars
+
+Version 0.87
+------------
+
+- rudimentary V6 support
+- sound
+- last-minute enhancement: read ZCOD chunks from BLORB files
+
+Version 0.86
+-----------
+
+- blorb support
+- sound
+
+Version 0.82:
+-----------
+
+- add missing header information
+- game-defined dictionaries, extend tokenise using user dictionary
+- game-defined accent tables and alphabet tables
+- opcodes: @encode_text, @print_table, @throw, @catch
+- different alphabet tables
+- support version 1 and 2
+- fix screen model bugs (font sizes, color and missing newline "Beyond Zork", "Blue Chairs")
+
+Version 0.78:
+------------
+
+- timed input (introduced here, since Border Zone is the first Infocom game
+  using this feature)
+- print_unicode (EXT)
+- check_unicode (EXT)  
+- rework paging scheme, buffering up all output until input is requested
+- run terpetude successfully
+- ZsciiEncoding supports the full unicode set
+
+Version 0.75:
+-------------
+
+- revisit Z-decoding
+- improve tests
+- play some games
+- implement opcodes:
+  1. copy_table
+ 
+Version 0.74:
+-------------
+
+- runs "Curses" and some other V5, V7 and V8 games
+- change header attribute setting model, string or enum based for more
+	flexibility
+- allow cursor keys as input for read_char
+- add V7 and V8 addressing
+- opcodes:
+  - new:               - changed:                          - illegal
+    1. not (VAR)         1. sread -> aread (is store)        1. save (0OP)
+    2. call_2n           2. not -> call_1n                   2. restore (0OP)
+    3. call_vn
+    4. call_vn2
+    5. piracy
+    6. tokenise
+    7. check_arg_count
+    
+- extended opcodes:
+  1. save (regular)
+  2. restore (regular)
+  3. save_undo
+  4. restore_undo
+  5. log_shift
+  6. art_shift
+  7. set_colour
+  8. set_font
+ 
+Version 0.72:
+-------------
+
+Reference games: Seastalker (V3, for screen splitting), A mind forever voyaging,
+                 Trinity
+
+- support story file version 4
+- translate packed addresses differently
+- support font styles
+- extended object table
+- toggable text buffering
+- support screen splitting
+- support paging
+- toggable scrolling
+- need to support stream 3 (this was discovered during testing of "A mind
+  forever voyaging")
+- adjust quetzal start pc for version >= 4 games
+- opcodes:
+  - new:                  - changed:                 - illegal:
+    1. call_2s              1. save                       1. show_status
+    2. call_1s              2. restore
+    3. call_vs2             3. sread (will not modify for timed input)
+    4. set_text_style
+    5. buffer_mode
+    6. erase_window
+    7. erase_line
+    8. set_cursor
+    9. get_cursor
+    10. read_char (no timed input in this version)
+    11. scan_table
+    
+Version 0.70
+-------------
+
+Reference games: Minizork, Zork I, Leather goddesses of Phobos
+
+- support story file version 3
+- provide Swing application and applet interfaces
+- support streams and screen model 3
+- support ZSCII and encoded ZSCII
+- support Quetzal save game format

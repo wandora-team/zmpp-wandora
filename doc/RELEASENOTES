@@ -1,0 +1,78 @@
+Project: The Z-machine Preservation Project
+Author: Wei-ju Wu (2005-2009)
+License: BSD License (Revised)
+
+About
+-----
+
+The Z-machine Preservation Project is an attempt to capture and document the
+Z-machine's architecture and design principles and to provide a modern Java
+implementation that can be easily maintained and extended. Its goal is to be a reference
+Java implementation of the Z-machine specification.
+
+Features:
+
+- written from scratch using Java 5
+- supports all story file versions
+- can be run as a Java applet within the web browser
+- saves and reads games in Quetzal 1.4 format
+- reads media in Blorb format
+- reads Z code embedded in Blorb files
+- shows Inform 7 meta data in application mode
+- input stream 0 and 1 (keyboard, mouse and file)
+- output streams 1, 2 and 3 (screen, transcript, memory with nesting)
+- split subwindows (paging, buffering, scrolling)
+- multiple font styles and colors (console Frotz color scheme)
+- sound effects (AIFF)
+- accented characters and unicode
+- timed input, preinitialized input
+- game-defined dictionaries, alphabet tables and accent tables
+- user defined default colors and fonts
+- command history
+- multiple undo
+- internationalized user interface for English, Spanish, French, Swedish, German
+
+For remarks and suggestions for improvements, please contact
+me using the ZMPP project homepage:
+
+http://sourceforge.net/projects/zmpp
+
+TODO:
+
+- character graphics
+- save/restore regions
+
+
+Operating systems tested on:
+-------------------------
+
+- Linux
+- Windows XP
+- Mac OS X
+
+**************************
+Acknowledgements
+**************************
+
+This project would not have been possible without my dear wife encouraging
+and supporting me to work on software that lets me combine my hobby
+computer games and history and my strive to improve my skills.
+
+Big thanks go to the Interactive Fiction community:
+
+- the rec.arts.int-fiction group and their representatives for providing
+well written specifications
+- Eric Forgeot for a lot of ideas and suggestions, the design of ZMPP's
+  website and french translation of ZMPP's user interface
+- Fredrik Ramsberg for contributing his thoughts, suggestions and time towards
+better language support in ZMPP
+- Pichuneke for his feedback and the spanish translation of the user interface
+- Richard Vivian for selling me his copy "Masterpieces of Infocom"
+- Stefan Jokisch, David Kinder, Andrew Plotkin, Jon Zeppieri and Andrew Hunter
+  for their Z-code/Glulx interpreters, that implementations served and still
+  serve as an inspiration to ZMPP
+- The spanish "CAAD" forum for their feedback
+- Matthias Schmidt for his suggestions that will hopefully lead to a more
+accessible ZMPP
+- An Ni for revealing an issue in Unicode handling that prevented displaying
+  Japanese
