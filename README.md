@@ -2,7 +2,7 @@ ZMPP Wandora
 ============
 
 ZMPP Wandora is a fork of a [Z-Machine Preservation Project (ZMPP)](http://sourceforge.net/projects/zmpp/),
-an interactive fiction Player written for Java Virtual Machine, created by Wei-ju Wu. ZMPP Wandora is based
+an interactive fiction player written for Java Virtual Machine, created by Wei-ju Wu. ZMPP Wandora is based
 on ZMPP version 1.02.
 
 ZMPP Wandora adds some Swing integration functionality to the original project. ZMPP Wandora is
